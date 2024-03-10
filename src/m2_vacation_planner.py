@@ -2,7 +2,7 @@
 #   prints out a packing list for that vacation type
 
 ###############################################################################
-# TODO: 1. (5 pts)
+# Done: 1. (5 pts)
 #
 #   For this module, we are going to create a vacation planner that will help
 #   the user plan what they need to bring on vacation.
@@ -29,8 +29,48 @@
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
 
+def starter_list(type):
+
+    command = input("Vacation type: ")
+
+    match command:
+
+        case "mountains":
+            
+            mountain_supplies = ["water", "backpacks", "food"]    
+            
+            return mountain_supplies             
+                
+                
+
+                             
+                
+        case "cave":
+            
+            cave_supplies = ["flashlight", "phone", "camera"]
+
+            return cave_supplies
+                
+                
+                
+        case "farm":
+            
+            farm_supplies = ["tent","boots", "swimsuit"]      
+            
+            return farm_supplies
+
+                
+           
+                
+        case other:
+            
+            return [] 
+
+
+
+
 ###############################################################################
-# TODO: 2. (4 pts)
+# Done: 2. (4 pts)
 #
 #   Now, perhaps the user would like to bring some of their own stuff that they
 #   specify.
@@ -48,6 +88,27 @@
 #
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
+        
+item_list = []
+
+item_chosen = "x"
+
+def gather_items():
+
+    while True:
+
+        item_chosen = input("Please enter an item: ")
+
+        if item_chosen == "end":
+
+            break
+
+        elif "item_chosen" != "end":
+
+            item_list.append(item_chosen)
+        
+    return item_list
+
 
 ###############################################################################
 # TODO: 3. (6 pts)
@@ -76,3 +137,15 @@
 #
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
+list = []
+secondlist = []
+
+def main():
+    print("Hello, ready for vacation?")
+    print(starter_list(type))
+    gather_items()
+    list.append(gather_items)
+
+main()
+         
+print("Goodbye!")   
