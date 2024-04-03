@@ -40,7 +40,7 @@ def get_step(num):
     
         if details == "end":
 
-            break
+            return "end"
     
         elif details != "end":
 
@@ -88,13 +88,22 @@ def get_step(num):
 
 
 def main():
+    list = []
     num = 1
-    details = "r"
-    while num > 0:
-        print(get_step(num))
+    while True:    
+        Number = get_step(num)
+        if Number == "end":
+            break
+        list.append(Number)
         num += 1
-        
-      
+    for x in list:
+        print(x)
     
 main()
     
+# 1) I didn't keep track of steps in a list
+    # I put the list inside the function and used append to add steps to list
+# 2) the loop doesn't end when the user type "end"
+    # I added a while loop so there was a break statement
+# 3) the function doesn't print the list of steps at the end
+    # I added a for loop and printed the results

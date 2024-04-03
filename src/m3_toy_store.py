@@ -31,8 +31,7 @@ def get_toy():
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
 def get_price():
-    return float(input("Please enter a price: "))
-
+    return input("Please enter a price: ")
 ###############################################################################
 # Done: 3. (5 pts)
 ##
@@ -72,14 +71,16 @@ def toy_price(toy, price):
 #
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
-total_cost = 0
+
 def calculate_total_price(toys):
-    for price in toys:
-        total_cost = total_cost + price
-        float(total_cost)
+    total_cost = 0
+    for toy in toys:
+        total_cost = total_cost + toy[1]
     return total_cost
 
-
+# 1) the total_cost was initialized outside function
+    # I moved the total_cost inside the function
+    
 ###############################################################################
 # TODO: 5. (8 pts)
 #
@@ -109,12 +110,35 @@ def calculate_total_price(toys):
 ###############################################################################
 
 def main():
-    
-    sum = 0
-    get_toy()
-    price = get_price()
-    sum = price + sum
-    print(sum)
+    list = []
+    while True:
+        Toy = get_toy()
+        if Toy == "end":
+            break
+        Price = get_price()
+        if Price == "end":
+            break
+        Price = float(Price)
+        Tuple = toy_price(Toy, Price)
+        list.append(Tuple)
+    TotalPrice = calculate_total_price(list)
+    for x in list:
+        print(x)
+    print(f"Total Cost: ${TotalPrice}")
         
 main()
-    
+
+# 1) Doesn't continually ask for toy information
+    # I put the toy and price functions inside a while loop
+# 2) Doesn't have logic for when the user types "end"
+    # I created a while loop that included break statements
+# 3) Doesn't use the toy_price() function to create a tuple out of the information
+    # I included the toy_price() function and saved it to a variable
+# 4) Doesn't gather the tuples in a list
+    # I added the tuple to the list
+# 5) Doesn't use the calculate_total_price() function to calculate the total cost
+    # I included the calculate_total_price() function outside the while loop, so it calculated the total cost
+# 6) Doesn't print each set of toy information
+    # I created a for loop that prints the sets of toy information
+# 7) Doesn't print the total cost with the correct format
+    # I used an f string and printed the total cost with the correct format

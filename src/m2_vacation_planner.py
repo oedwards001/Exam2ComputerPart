@@ -31,9 +31,7 @@
 
 def starter_list(type):
 
-    command = input("Vacation type: ")
-
-    match command:
+    match type:
 
         case "mountains":
             
@@ -88,12 +86,14 @@ def starter_list(type):
 #
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
-        
-item_list = []
+  
 
-item_chosen = "x"
+
+
 
 def gather_items():
+
+    item_list = []
 
     while True:
 
@@ -103,12 +103,14 @@ def gather_items():
 
             break
 
-        elif "item_chosen" != "end":
+        elif item_chosen != "end":
 
             item_list.append(item_chosen)
         
     return item_list
 
+# 1) list was not inside function
+    # I moved list inside the function
 
 ###############################################################################
 # TODO: 3. (6 pts)
@@ -137,15 +139,25 @@ def gather_items():
 #
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
-list = []
-secondlist = []
 
 def main():
     print("Hello, ready for vacation?")
-    print(starter_list(type))
-    gather_items()
-    list.append(gather_items)
-
+    VacationType = input("What is your vacation type: ")
+    StarterList = starter_list(VacationType)
+    for x in StarterList:
+        print(x)
+    OtherList = gather_items()
+    CompleteList = StarterList + OtherList
+    for x in CompleteList:
+        print(x)
+    print("Goodbye!")   
 main()
          
-print("Goodbye!")   
+# 1) Didn't prompt user for vacation type
+    # I inserted a line so that the user could input and answer and saved it to a variable
+# 2) Didn't print starter items on separate lines
+    # I created a for loop for Starter List and printed the items
+# 3) Didn't keep track of user items 
+    # I assigned items to a variable
+# 4) Didn't combine lists and didn't print each one separately
+    # I added the StarterList to the OtherList and saved them to a variable and printed te lists using a for loop
